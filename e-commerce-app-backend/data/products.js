@@ -1,0 +1,88 @@
+const products = [
+  {
+    id: 1,
+    name: "iPhone 15",
+    description: "Latest Apple iPhone",
+    price: 120000,
+    image: "/images/iphone.png",
+  },
+  {
+    id: 2,
+    name: "MacBook Pro",
+    description: "Powerful laptop from Apple",
+    price: 200000,
+    image: "/images/macbook.png",
+  },
+  {
+    id: 3,
+    name: "AirPods Pro",
+    description: "Noise cancelling earbuds",
+    price: 25000,
+    image: "/images/airpods.png",
+  },
+  {
+    id: 4,
+    name: "Wrist Watch",
+    description: "Stylish watch",
+    price: 15000,
+    image: "/images/watch.png",
+  },
+  {
+    id: 5,
+    name: "Running Shoes",
+    description: "Comfortable shoes",
+    price: 9000,
+    image: "/images/shoes.png",
+  },
+  {
+    id: 6,
+    name: "T-Shirt",
+    description: "Casual T-shirt",
+    price: 800,
+    image: "/images/tshirt.png",
+  },
+  {
+    id: 7,
+    name: "Shirt",
+    description: "Formal Shirt",
+    price: 1000,
+    image: "/images/shirt.png",
+  },
+  {
+    id: 8,
+    name: "Washing Machine",
+    description: "Efficient washing machine",
+    price: 15000,
+    image: "/images/washingmachine.png",
+  },
+  {
+    id: 9,
+    name: "Headphones",
+    description: "Wireless headphones",
+    price: 5000,
+    image: "/images/headphones.png",
+  },
+  {
+    id: 10,
+    name: "LED Smart Tv",
+    description: "LED Smart Tv",
+    price: 15000,
+    image: "/images/tv.png",
+  },
+  {
+    id: 11,
+    name: "purse",
+    description: "Stylish Purse",
+    price: 2000,
+    image: "/images/purse.png",
+  },
+  {
+    id: 12,
+    name: "Smart Watch",
+    description: "Smart Watch",
+    price: 2000,
+    image: "/images/smartwatch.png",
+  },
+];
+
+module.exports = products;
