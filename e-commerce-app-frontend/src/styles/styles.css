@@ -5,46 +5,55 @@ body {
     background: #f9fafb;
     color: #333;
   }
+
+  /* Header Styling */
 .header {
-  background: #4f46e5;
-  padding: 1rem 2rem;
+  background-color: #4f46e5;
+  color: white;
+  padding: 12px 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  /* Sticky effect */
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .header-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .logo {
-  color: white;
-  font-size: 1.4rem;
-  font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color:#ffffff;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-links {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
-  font-weight: 500;
-  position: relative;
+  font-size: 1rem;
   transition: color 0.2s ease;
 }
 
-.nav-links a:hover {
-  color: #c7d2fe;
-}
 
+.nav-links a:hover,
 .nav-links .active {
-  text-decoration: none;
+  /* text-decoration: none; */
+  color: #ffd700;
+
 }
 
 .cart-link {
@@ -53,17 +62,175 @@ body {
   position: relative;
 }
 
+
 .cart-badge {
-  background: #ef4444;
+  background-color: #22c55e;
   color: white;
   font-size: 0.75rem;
-  font-weight: bold;
+  padding: 2px 6px;
   border-radius: 50%;
-  padding: 3px 7px;
-  position: absolute;
-  top: -8px;
-  right: -12px;
+  margin-left: 5px;
 }
+
+
+/* ===========================
+   Auth Page Styles (Login & Signup)
+   =========================== */
+
+   .auth-container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f6fb; 
+    padding: 2rem;
+    /* background: linear-gradient(135deg, #e8da56, #fffa6f, #faf38b);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite; */
+  }
+  
+  .auth-card {
+    background: #fff;
+    padding: 2.5rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .auth-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Headings */
+  
+  .auth-card h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  /*Form Inputs */
+  
+  .auth-form input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .auth-form input:focus {
+    outline: none;
+    border-color: #4c51bf; /* Indigo */
+    box-shadow: 0 0 0 3px rgba(76, 81, 191, 0.2);
+  }
+  
+  /* Buttons*/
+  
+  .auth-btn {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    background-color: #4c51bf;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .auth-btn:hover {
+    background-color: #3b42a1;
+    transform: translateY(-2px);
+  }
+  
+  /*Error Text */
+  
+  .error-text {
+    color: #d9534f;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Switch (Login <-> Signup) */
+  
+  .auth-switch {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: #444;
+  }
+  
+  .auth-switch a {
+    color: #4c51bf;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 4px;
+    transition: color 0.2s ease;
+  }
+  
+  .auth-switch a:hover {
+    color: #2b308f;
+    text-decoration: underline;
+  }
+  
+  /*Responsive */
+  
+  @media (max-width: 480px) {
+    .auth-card {
+      padding: 2rem;
+    }
+  
+    .auth-card h2 {
+      font-size: 1.5rem;
+    }
+  
+    .auth-btn {
+      font-size: 0.95rem;
+    }
+  }
+
+
+.logout-btn {
+  background-color: #ef4444;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626;
+}
+
+/* Welcome text + Logout button */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.welcome-text {
+  color: #e0e7ff;
+  font-size: 0.95rem;
+}
+
+/* Mobile Responsive */
+/* ===== MOBILE MENU ===== */
 .menu-toggle {
   display: none;
   background: none;
@@ -74,39 +241,43 @@ body {
 }
 
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .header-container {
+    flex-wrap: wrap;
+  }
+
   .nav-links {
-    display: flex;
-    flex-direction: column;
-    background: #636361;
     position: absolute;
     top: 60px;
-    right: 20px;
-    width: 180px;
-    padding: 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
+    right: 0;
+    background-color: #1f2937;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px 0;
+    /* gap: 1rem; */
+    display: none;
   }
 
   .nav-links.open {
-    max-height: 300px; 
-    padding: 1rem;
+    display: flex;
   }
 
   .nav-links a {
-    padding: 0.8rem;
-    border-radius: 6px;
-    transition: background 0.2s;
-  }
-
-  .nav-links a:hover {
-    background: #09090a;
-  }
-
-  .menu-toggle {
+    padding: 10px 0;
+    width: 100%;
     display: block;
+  }
+  .user-section {
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+
+  .logout-btn {
+    margin-top: 5px;
   }
 }
 
@@ -172,6 +343,54 @@ body {
     background: #3730a3;
   }
   
+  /* ===== ADD TO CART BUTTON ===== */
+.add-to-cart-btn {
+  background: linear-gradient(90deg, #4f46e5, #6366f1);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 6px 12px;       
+  font-size: 0.85rem;       
+  border-radius: 6px; 
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
+
+}
+
+.add-to-cart-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #4338ca, #6366f1);
+  box-shadow: 0 6px 12px rgba(67, 56, 202, 0.35);
+}
+
+.add-to-cart-btn:active {
+  transform: scale(0.98);
+}
+
+.add-to-cart-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Prevent footer overlap on smaller screens */
+.product-card {
+  position: relative;
+  padding-bottom: 80px; 
+}
+
+/* Responsive tweak */
+@media (max-width: 600px) {
+  .add-to-cart-btn {
+    font-size: 0.9rem;
+    padding: 9px 12px;
+  }
+}
+
   .cart-container {
     max-width: 700px;
     margin: 2rem auto;
@@ -367,28 +586,98 @@ body {
     color: green;
   }
   
-
+ /*  Footer Styling */
 
   .footer {
-    background-color: #4f46e5; 
-    color: white;
-    padding: 1.5rem 2rem;
+    background-color: #111827;
+    color: #f3f4f6;
     text-align: center;
-    margin-top: 19rem;
+    padding: 15px 10px;
+    margin-top: auto;
+    font-size: 0.85rem;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* ✅ Sticky behavior */
+    position: relative;
+    bottom: 0;
+    transition: background-color 0.3s ease;
   }
   
   .footer-links {
-    margin-top: 0.5rem;
+    margin: 6px 0 8px;
   }
   
   .footer-links a {
-    color: white;
+    color: #a5b4fc;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 8px;
     font-weight: 500;
-    transition: color 0.2s;
+    transition: color 0.2s ease, transform 0.2s ease;
   }
   
   .footer-links a:hover {
-    color: #c7d2fe;
+    color: #ffffff;
+    transform: scale(1.05);
   }
+
+/* Subtle hover transition for the footer */
+.footer:hover {
+  background-color: #1f2937;
+  transition: background-color 0.3s ease;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+  .footer {
+    font-size: 0.85rem;
+    padding: 12px 8px;
+  }
+  .footer-links a {
+    display: block;
+    margin: 4px 0;
+  }
+}
+
+
+.profile-container {
+  text-align: center;
+  padding: 40px;
+}
+
+.profile-card {
+  display: inline-block;
+  background: #fff;
+  padding: 25px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+.profile-card p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make the React root container take full height */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Ensure header + content + footer layout behaves correctly */
+header, .header {
+  flex-shrink: 0;
+}
+
+.footer {
+  flex-shrink: 0;
+  margin-top: auto;
+}
