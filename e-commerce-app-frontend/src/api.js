@@ -1,4 +1,6 @@
-const API_URL = "http://localhost:5000/api";
+// const API_URL = "http://localhost:5000/api";
+const API_URL = "https://e-commerce-app-8-u7pg.onrender.com/api";
+
 
 // ✅ Existing APIs
 export const fetchProducts = async () => {
