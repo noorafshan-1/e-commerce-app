@@ -1,24 +1,57 @@
+// const express = require("express");
+// const cors = require("cors");
+// const cookieParser = require("cookie-parser");
 
+// app.use(express.json());
+// app.use(cookieParser());
 
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000", // your frontend
+//     credentials: true,
+//   })
+// );
 
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const dotenv = require("dotenv");
-const products = require("./data/products");
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import mongoose from "mongoose";
+import Product from "./models/Product.js";
+import authRoutes from "./routes/authRoutes.js";
+import products from "./data/products.js";
+
 
 dotenv.config();
 
+// ✅ CREATE APP FIRST
 const app = express();
 
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
-app.use(express.json());
+// ✅ MIDDLEWARES
 
-// ✅ Connect to MongoDB first before starting the server
-const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/ecommerce";
+// app.use(cors({
+//     origin: "http://localhost:5173",
+//     credentials: true
+// }));
+app.use(
+  cors({
+    origin: "http://localhost:3000", // your frontend
+    credentials: true,
+  })
+);
+
+app.use(express.json());
+app.use(cookieParser());
+
+// ✅ ROUTES
+app.use("/api/auth", authRoutes);
+
+// ✅ PORT SETUP
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Backend running at http://localhost:${PORT}`);
+});
 
 mongoose
   .connect(process.env.MONGO_URI || "mongodb://localhost:27017/ecommerce")
@@ -35,16 +68,24 @@ mongoose
     process.exit(1);
   });
 
-// Routes
-app.use("/api/auth", require("./routes/authRoutes"));
 
-// Test route
+// // Test route
 app.get("/", (req, res) => res.send("API is running..."));
+
 
 // Products route
 app.get("/api/products", (req, res) => {
   res.json(products);
 });
+
+// app.get("/api/products", async (req, res) => {
+//   try {
+//     const products = await Product.find();
+//     res.json(products);
+//   } catch (error) {
+//     res.status(500).json({ message: "Server error" });
+//   }
+// });
 
 // Place Order
 app.post("/api/order", (req, res) => {
@@ -64,20 +105,67 @@ app.post("/api/order", (req, res) => {
 
 
 
+//ye wala abhi comment kiya h
 
+// const express = require("express");
+// const cors = require("cors");
+// const mongoose = require("mongoose");
+// const bodyParser = require("body-parser");
+// const dotenv = require("dotenv");
+// const products = require("./data/products");
 
+// dotenv.config();
 
+// const app = express();
 
+// // Middleware
+// app.use(cors());
+// app.use(bodyParser.json());
+// app.use(express.json());
 
+// // ✅ Connect to MongoDB first before starting the server
+// const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/ecommerce";
 
+// mongoose
+//   .connect(process.env.MONGO_URI || "mongodb://localhost:27017/ecommerce")
+//   .then(() => {
+//     console.log("✅ MongoDB connected successfully");
 
+//     const PORT = process.env.PORT || 5000;
+//     app.listen(PORT, () => {
+//       console.log(`🚀 Backend running at http://localhost:${PORT}`);
+//     });
+//   })
+//   .catch((err) => {
+//     console.error("❌ MongoDB connection error:", err.message);
+//     process.exit(1);
+//   });
 
+// // Routes
+// app.use("/api/auth", require("./routes/authRoutes"));
 
+// // Test route
+// app.get("/", (req, res) => res.send("API is running..."));
 
+// // Products route
+// app.get("/api/products", (req, res) => {
+//   res.json(products);
+// });
 
+// // Place Order
+// app.post("/api/order", (req, res) => {
+//   const { firstName, lastName, address, cart } = req.body;
+//   if (!firstName || !lastName || !address) {
+//     return res.status(400).json({ message: "All fields are required!" });
+//   }
 
+//   console.log("🛒 New Order Received:");
+//   console.log("Customer:", firstName, lastName);
+//   console.log("Address:", address);
+//   console.log("Items:", cart);
 
-
+//   res.json({ message: "Order placed successfully!" });
+// });
 
 // const express = require("express");
 // const cors = require("cors");
@@ -87,8 +175,6 @@ app.post("/api/order", (req, res) => {
 // const dotenv = require("dotenv");
 
 // dotenv.config();
-
-
 
 // const app = express();
 // // const PORT = 5000;
@@ -140,11 +226,9 @@ app.post("/api/order", (req, res) => {
 //   res.json({ message: "Order placed successfully!" });
 // });
 
-
 // // ✅ Start server
 // const PORT = process.env.PORT || 5000;
 
 // app.listen(PORT, () => {
 //   console.log(`🚀 Backend running at http://localhost:${PORT}`);
 // });
-
