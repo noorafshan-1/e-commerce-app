@@ -35,7 +35,8 @@ const app = express();
 // }));
 app.use(
   cors({
-    origin: "http://localhost:3000", // your frontend
+   // origin: "http://localhost:3000", // your frontend
+    origin: ["https://e-commerce-trendmart-app.vercel.app"],
     credentials: true,
   })
 );
